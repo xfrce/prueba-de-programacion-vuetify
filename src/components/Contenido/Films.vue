@@ -1,67 +1,72 @@
 <template>
-  <v-container>
-    <div id="cnt">
-      <h3>{{peli.episode_id}} - {{peli.title}}</h3>
-      <div v-for="(actor,index) in peli.characters" :key="index">
-        <Peoples :nombre="actor.name" :idx="index" />
-      </div>
-    </div>
-  </v-container>
+  <v-layout>
+    <v-flex xs12 sm6 offset-sm3>
+      <v-card>
+          <v-container fill-height fluid>
+            <v-layout fill-height>
+              <v-flex xs12 align-end flexbox>
+                <span class="headline">{{peli.title}}</span>
+              </v-flex>
+            </v-layout>
+          </v-container>
+        <v-card-title>
+          <div>
+            <span class="grey--text">{{this.$spn.peoples}}</span><br>
+          </div>
+        </v-card-title>
+        <v-card-text>
+
+        <div v-for="(car,index) in peli.characters" :key="index">
+          <div v-if="typeof personaje[car] !== 'undefined'"  @click="dialog = true;crt=car;" >
+              {{personaje[car].name}}
+          </div>
+   
+        </div>
+
+      <v-dialog v-model="dialog" width="500" >
+        <v-card>
+          <v-card-title class="text-h5 grey lighten-2"> {{this.$spn.people}} </v-card-title>
+          <v-card-text> {{ctr}}</v-card-text>
+        </v-card>
+      </v-dialog>
+
+        </v-card-text>
+      </v-card>
+    </v-flex>
+  </v-layout>
 </template>
 
 
+ 
+
 <script>
-  import Peoples from '@/components/Contenido/Peoples.vue'
+  import axios from 'axios' 
 
   export default {
     name: 'Films',
     props: {
-      peli: Object
+       peli: Object
     },
-    components: {
-      Peoples,
+    mounted(){
+        this.peli.characters.forEach((value) => {
+          console.log(value)
+          axios
+            .get(value +'/?format=json')
+            .then(response => {
+              this.personaje[value] = response.data
+            })
+            .catch(error => {console.log(error)})	  
+          });
+     
     },
-  }
-
-
-
-
-
-/* ****************************************
-  qwert {{index}} {{actor.name}}
-
- :key="index"
-
-     <Peoples :idx=index.toString() />	
-
-      <v-divider
-                  v-if="!actor"
-                  :key="`divider-${i}`"
-                ></v-divider>
-
-function key2(idx){
-return Math.floor(Math.random() * 9999999 +idx);
-}
-
-
-data () {
-    return {
-      actor: [    {name:'sryjsr'},    {name:'srykry'},    {name:'styjs'}]
+   
+    data () {
+      return {
+        dialog: true,
+        personaje: []
+      }
     }
-  },
-  mounted () {
-    axios
-      .get('https://swapi.dev/api/people/:index/?format=json')
-      .then(response => {
-          this.actor = response.data.name
-      })
-      .catch(error => {
-        console.log(error)
-      })
   }
-
-*/
-
 
 
 </script>
