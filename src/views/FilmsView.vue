@@ -31,8 +31,12 @@
       bag: []
     }
   },
-  mounted () {
-    axios
+  async mounted () {
+        const axiosInstance = axios.create({
+    
+        });
+
+      await axiosInstance
       .get('https://swapi.dev/api/films/?format=json')
       .then(response => {
           this.bag = response.data
