@@ -1,1 +1,30 @@
+{
+    "webname": "Prueba de Programaci\u00F3n (Vuetify)",
+    "webautor": "Sanny Alexander S\u00E1nchez",
+    "apellidos": "Apellidos",
+    "lastname_r1": "El Apellido es requerido",
+    "lastname_r2": "El Apellido debe ser a mayor a 3 caracteres",
+    "enviar": "Enviar",
+    "email": "Correo Electr\u00F3nico",
+    "email_r1": "El Correo Electr\u00F3nico es requerido",
+    "email_r2": "E-mail debe ser valido",    
+    "nombres": "Nombres",
+    "name_r1": "El Nombre es requerido",
+    "name_r2": "El Nombre debe ser a mayor a 3 caracteres",
+    "opinion": "Opini\u00F3n",
+    "pelicula": "Pel\u00EDcula",
+    "peliculas": "Pel\u00EDculas",
+    "zip": "C\u00F3digo Postal",
+    "zip_r1": "El C\u00F3digo Postal es requerida",
+    "zip_r2": "La C\u00F3digo Postal debe ser a mayor a 3 caracteres",
 
+    "starship": "Nave Estelar",
+    "vehicle": "Veh\u00EDculo",
+    
+    "starships": "Naves Estelares",
+    "vehicles": "Veh\u00EDculos",
+    "contact": "Contacto",
+    "people": "Personaje",
+    "peoples": "Personajes"
+    
+}
