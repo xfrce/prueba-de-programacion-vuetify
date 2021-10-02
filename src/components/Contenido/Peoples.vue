@@ -1,44 +1,34 @@
-<template>   
-  <v-container>  
 
-    {{this.nombre}}
-  </v-container>
-</template>
+  
+     <div @click="dialog = true">{{personaje.name}}</div>
+   
 
 <script>
-/*
-
-    <router-link to={{/people/ +this.idx.toString()}} class="flm">{{personaje.name}}</router-link>  
-
-
-
-*/
-
-
   import axios from 'axios'
-  
-    export default {
-      name: 'Peoples',
-      props: {
-        idx: Number,
-	nombre: String,
-      },	
-      components: {
-      },
-      data () {
-        return {
-          personaje: []
-        }
-      },
-      async mounted () {
-        const axiosInstance = axios.create({
-          headers: {
-            "Access-Control-Allow-Origin": "*"
-          }
-        });
 
-        await axiosInstance
-        .get('https://swapi.dev/api/people/'+ this.idx +'/?format=json')
+  export default {
+    name: 'Peoples',
+    props: {
+      idx: String
+    },
+    methods:{
+         mostrar(cad){
+              this.dialog = true;
+              this.cad2 = cad;
+           }
+    },
+    data () {
+      return {
+        dialog: false,
+        personaje: {}
+      }
+    },
+    async mounted () {
+        const axiosInstance = axios.create({     
+    });
+
+    await axiosInstance
+        .get(this.idx +'/?format=json')
         .then(response => {
           this.personaje = response.data
         })
@@ -46,6 +36,6 @@
           console.log(error)
         })
       }
-    }  
+    }
 
 </script>
