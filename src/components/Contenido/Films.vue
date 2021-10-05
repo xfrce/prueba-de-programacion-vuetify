@@ -2,7 +2,7 @@
   <v-layout>
     <v-flex xs12 sm6 offset-sm3>
       <v-card>
-          <v-container fill-height fluid>
+          <v-container fill-height fluid class="text-h5 grey lighten-2">
             <v-layout fill-height>
               <v-flex xs12 align-end flexbox>
                 <span class="headline">{{peli.title}}</span>
@@ -15,39 +15,31 @@
           </div>
         </v-card-title>
         <v-card-text>
-
-        <div v-for="(car,index) in peli.characters" :key="index">
-          <div v-if="typeof personaje[car] !== 'undefined'"  @click="dialog = true;crt=car;" >
-              {{personaje[car].name}}
-          </div>
-   
-        </div>
-
-      <v-dialog v-model="dialog" width="500" >
-        <v-card>
-          <v-card-title class="text-h5 grey lighten-2"> {{this.$spn.people}} </v-card-title>
-          <v-card-text> {{ctr}}</v-card-text>
-        </v-card>
-      </v-dialog>
-
+<template v-for="(car, index) in peli.characters" >
+<Peoples :idx="car" :key="index"/>
+</template>
         </v-card-text>
       </v-card>
     </v-flex>
   </v-layout>
 </template>
 
-
- 
-
 <script>
-  import axios from 'axios' 
+//  import axios from 'axios' 
+import Peoples from '@/components/Contenido/Peoples'
 
   export default {
     name: 'Films',
     props: {
        peli: Object
     },
-    mounted(){
+    components:{
+        Peoples
+    }
+  }
+/*
+
+   mounted(){
         this.peli.characters.forEach((value) => {
           console.log(value)
           axios
@@ -60,13 +52,8 @@
      
     },
    
-    data () {
-      return {
-        dialog: true,
-        personaje: []
-      }
-    }
-  }
 
+key="index"
+*/
 
 </script>
