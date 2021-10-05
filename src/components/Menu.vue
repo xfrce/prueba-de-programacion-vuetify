@@ -100,6 +100,7 @@
  
   .flm:link {
     text-decoration: none;
+    text-align: left;
   }
  
   .v-application a {
