@@ -3,7 +3,7 @@
     <div id="cnt">
       <h2>{{this.$spn.starships}}</h2>
        <div v-for="(nave, index) in bag.results"  :key="index" >
-        <div>{{nave.name}}</div>
+        <li class="li1">{{nave.name}}</li>
       </div>
     </div>
   </v-container>
@@ -42,3 +42,16 @@
 	}
 
 </script>
+
+<style scope>
+
+  .li1 {
+    list-style:none;
+    text-align: left;
+  }
+ 
+  .li1:hover {
+    background: #efefae;
+  }
+ 
+</style>

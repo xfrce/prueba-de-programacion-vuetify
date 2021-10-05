@@ -7,11 +7,11 @@
 
         <v-dialog v-model="dialog" width="500" >
           <template v-slot:activator="{}">
-            <div @click="dialog=true; mostrar($spn.vehicle, vehi.name)"   > {{vehi.name}} </div>
+            <li class="li1" @click="dialog=true; mostrar($spn.vehicle, vehi.name)"   > {{vehi.name}} </li>
           </template>
           <v-card>
             <v-card-title class="text-h5 grey lighten-2">{{cad1}}</v-card-title>
-            <v-card-text>{{cad2}}</v-card-text>
+            <v-card-text><br/>{{cad2}}</v-card-text>
           </v-card>
         </v-dialog>
       </div>
@@ -63,3 +63,17 @@
       }
     }
 </script>
+
+<style scope>
+
+  .li1 {
+    list-style:none;
+    color: #0000ff!important;
+    text-align: left;
+  }
+ 
+  .li1:hover {
+    background: #efefae;
+  }
+ 
+</style>
