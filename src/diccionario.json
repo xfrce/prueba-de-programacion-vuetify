@@ -7,7 +7,7 @@
     "enviar": "Enviar",
     "email": "Correo Electr\u00F3nico",
     "email_r1": "El Correo Electr\u00F3nico es requerido",
-    "email_r2": "E-mail debe ser valido",    
+    "email_r2": "El Correo Electr\u00F3nico debe ser valido",    
     "nombres": "Nombres",
     "name_r1": "El Nombre es requerido",
     "name_r2": "El Nombre debe ser a mayor a 3 caracteres",
@@ -25,6 +25,9 @@
     "vehicles": "Veh\u00EDculos",
     "contact": "Contacto",
     "people": "Personaje",
-    "peoples": "Personajes"
-    
+    "peoples": "Personajes",
+    "birth": "Nacimiento",
+    "genero": "Genero",
+    "usuario": "Usuario",
+    "recibido": "Recibido"
 }
